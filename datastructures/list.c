@@ -51,26 +51,45 @@ void push(List *l, void *value)
     return;
 }
 
+void *valueAt(List *l, size_t index)
+{
+    if (index > (l->length - 1))
+    {
+        return NULL; // index out of bounds
+    }
+
+    Node *n = l->head;
+
+    for (size_t i = 0; i <= index; i++)
+    {
+        if (i == index)
+        {
+            return n->value;
+        }
+
+        n = n->next;
+    }
+    return NULL;
+};
+
 int main()
 {
-    List *list;
-    list->length = 0;
-    list->head = NULL;
+    List list;
+    list.length = 0;
+    list.head = NULL;
 
     struct Stuff
     {
         int value;
     };
 
-    struct Stuff *things;
-    things->value = 420;
-    struct Stuff *otherStuff;
-    otherStuff->value = 69;
+    struct Stuff things = {.value = 420};
+    struct Stuff otherStuff = {.value = 69};
 
-    push(list, things);
-    push(list, otherStuff);
+    push(&list, &things);
+    push(&list, &otherStuff);
 
-    Node *n = list->head;
+    Node *n = list.head;
     while (n != NULL)
     {
         printf("Entry: %d \n", ((struct Stuff *)n->value)->value);
