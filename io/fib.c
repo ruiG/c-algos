@@ -4,7 +4,7 @@
 int main()
 {
     int size = 0;
-    long unsigned int prev[2] = {1, 1};
+    long long unsigned int prev[2] = {1, 1};
 
     system("clear"); // clear screen
 
@@ -13,11 +13,11 @@ int main()
 
     for (size_t count = 0; count <= size; count++)
     {
-        long unsigned int fib = prev[0] + prev[1];
+        long long unsigned int fib = prev[0] + prev[1];
         prev[1] = prev[0];
         prev[0] = fib;
 
-        printf("%ld\n", fib);
+        printf("%llu\n", fib);
     }
     printf("\n");
     return 0;
