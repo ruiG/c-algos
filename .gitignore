@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Binary folder
+bin/
+
+# Vscode
+.vscode/
+
+# Random Mac Crap
+.DS_Store
